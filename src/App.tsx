@@ -3,25 +3,50 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+import { useAppStore } from "./store/appStore";
+import Layout from "./components/Layout";
+import Landing from "./components/Landing";
+import OnboardingStepper from "./components/onboarding/OnboardingStepper";
+import StudentDashboard from "./pages/StudentDashboard";
+import AlumniDashboard from "./pages/AlumniDashboard";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  const { userRole, isOnboardingComplete } = useAppStore();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Layout>
+            {!userRole ? (
+              <Landing />
+            ) : !isOnboardingComplete ? (
+              <OnboardingStepper />
+            ) : (
+              <Routes>
+                <Route 
+                  path="/" 
+                  element={
+                    userRole === 'student' ? <StudentDashboard /> : <AlumniDashboard />
+                  } 
+                />
+                <Route 
+                  path="*" 
+                  element={
+                    userRole === 'student' ? <StudentDashboard /> : <AlumniDashboard />
+                  }
+                />
+              </Routes>
+            )}
+          </Layout>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
