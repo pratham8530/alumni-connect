@@ -71,16 +71,28 @@ const OnboardingStepper: React.FC = () => {
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="w-full max-w-2xl rounded-2xl bg-surface shadow-2xl"
+        className="w-full max-w-2xl max-h-[90vh] rounded-2xl bg-surface shadow-2xl flex flex-col"
       >
         {/* Header */}
-        <div className="border-b border-border-secondary p-6">
+        <div className="border-b border-border-secondary p-6 flex-shrink-0">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-2xl font-bold text-foreground">
               {userRole === 'student' ? 'Student' : 'Alumni'} Onboarding
             </h2>
-            <div className="text-sm text-muted-text">
-              Step {onboardingStep} of {totalSteps}
+            <div className="flex items-center space-x-3">
+              <div className="text-sm text-muted-text">
+                Step {onboardingStep} of {totalSteps}
+              </div>
+              <button
+                onClick={() => window.location.reload()}
+                className="p-1 rounded-full hover:bg-surface-secondary text-muted-text hover:text-foreground"
+                aria-label="Close onboarding"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
             </div>
           </div>
 
@@ -133,7 +145,7 @@ const OnboardingStepper: React.FC = () => {
         </div>
 
         {/* Step Content */}
-        <div className="p-6">
+        <div className="p-6 flex-1 overflow-y-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={onboardingStep}
@@ -148,7 +160,7 @@ const OnboardingStepper: React.FC = () => {
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between border-t border-border-secondary p-6">
+        <div className="flex items-center justify-between border-t border-border-secondary p-6 flex-shrink-0">
           <button
             onClick={handleBack}
             disabled={onboardingStep === 1}

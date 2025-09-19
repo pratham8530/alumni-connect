@@ -12,11 +12,13 @@ import {
 } from 'phosphor-react';
 import { useAppStore } from '../store/appStore';
 import { dummyData } from '../data/dummy';
+import ShareExperienceModal from '../components/alumni/ShareExperienceModal';
 
 type ActiveView = 'profile' | 'experiences' | 'mentorship' | 'contributions';
 
 const AlumniDashboard: React.FC = () => {
   const [activeView, setActiveView] = useState<ActiveView>('profile');
+  const [showShareModal, setShowShareModal] = useState(false);
   const { currentUser, addNotification } = useAppStore();
 
   const alumni = currentUser as any; // Type assertion for demo
@@ -169,7 +171,7 @@ const AlumniDashboard: React.FC = () => {
           <p className="text-muted-text">Share your journey to help students</p>
         </div>
         <button
-          onClick={handleShareExperience}
+          onClick={() => setShowShareModal(true)}
           className="btn-primary"
         >
           <PlusCircle size={16} className="mr-2" />
@@ -274,7 +276,36 @@ const AlumniDashboard: React.FC = () => {
       case 'mentorship':
         return renderMentorship();
       case 'contributions':
-        return <div className="text-center text-muted-text py-12">Contributions tracking coming soon...</div>;
+        return (
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold text-foreground">Community Contributions</h2>
+            <div className="grid gap-6 lg:grid-cols-2">
+              <div className="card">
+                <h3 className="font-semibold text-foreground mb-4">Company Interview Tips</h3>
+                <div className="space-y-3">
+                  <div className="p-3 rounded-lg bg-surface-secondary">
+                    <div className="font-medium text-foreground">MasterPay Interview Process</div>
+                    <div className="text-sm text-muted-text">3 rounds: Coding + System Design + Culture fit</div>
+                  </div>
+                </div>
+                <button className="btn-ghost mt-4 w-full">Add Company Tips</button>
+              </div>
+              <div className="card">
+                <h3 className="font-semibold text-foreground mb-4">Mentorship Impact</h3>
+                <div className="space-y-2">
+                  <div className="flex justify-between">
+                    <span className="text-muted-text">Students Mentored</span>
+                    <span className="font-medium">12</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-text">Success Rate</span>
+                    <span className="font-medium text-success">92%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
       default:
         return renderProfile();
     }
@@ -316,6 +347,10 @@ const AlumniDashboard: React.FC = () => {
           {renderContent()}
         </motion.div>
       </div>
+      
+      {showShareModal && (
+        <ShareExperienceModal onClose={() => setShowShareModal(false)} />
+      )}
     </div>
   );
 };

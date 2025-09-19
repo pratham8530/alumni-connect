@@ -35,7 +35,7 @@ const Landing: React.FC = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-surface via-surface-secondary to-surface">
+    <div className="flex min-h-screen items-center justify-center bg-surface">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -47,13 +47,9 @@ const Landing: React.FC = () => {
           variants={cardVariants}
           className="mb-16"
         >
-          <h1 className="mb-6 bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-4xl font-bold text-transparent sm:text-5xl lg:text-6xl">
-            Welcome to AlumniConnect
+          <h1 className="mb-8 text-4xl font-bold text-foreground sm:text-5xl lg:text-6xl">
+            AlumniConnect
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-muted-text sm:text-xl">
-            Bridge the gap between students and alumni. Share experiences, find mentors, 
-            and grow together in your career journey.
-          </p>
         </motion.div>
 
         {/* Role Selection Cards */}

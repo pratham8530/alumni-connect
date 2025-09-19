@@ -126,6 +126,7 @@ export const useAppStore = create<AppState>((set, get) => ({
           bio: onboardingData.bio || 'Ready to help students succeed!',
           avatar: '/images/avatars/default.png',
           points: 10,
+          linkedinUrl: '',
           experience: 2,
           mentoring: false
         };

@@ -8,15 +8,21 @@ import {
   Star,
   Calendar,
   TrendUp,
-  Heart
+  Heart,
+  Eye
 } from 'phosphor-react';
 import { useAppStore } from '../store/appStore';
 import { dummyData } from '../data/dummy';
+import ProfileModal from '../components/modals/ProfileModal';
+import ProfileCompletion from '../components/student/ProfileCompletion';
+import MentorshipBooking from '../components/student/MentorshipBooking';
 
 type ActiveView = 'discover' | 'forums' | 'mentorship' | 'profile';
 
 const StudentDashboard: React.FC = () => {
   const [activeView, setActiveView] = useState<ActiveView>('profile');
+  const [selectedAlumniId, setSelectedAlumniId] = useState<string | null>(null);
+  const [selectedMentorId, setSelectedMentorId] = useState<string | null>(null);
   const { currentUser, openDrawer, addNotification } = useAppStore();
 
   const student = currentUser as any; // Type assertion for demo
@@ -170,13 +176,22 @@ const StudentDashboard: React.FC = () => {
                 ))}
               </div>
 
-              <button
-                onClick={() => handleRequestMentorship(alumni.id)}
-                className="btn-primary w-full text-sm"
-              >
-                <Calendar size={16} className="mr-2" />
-                Request 1:1 Session
-              </button>
+              <div className="flex space-x-2">
+                <button
+                  onClick={() => setSelectedMentorId(alumni.id)}
+                  className="btn-primary flex-1 text-sm"
+                >
+                  <Calendar size={16} className="mr-2" />
+                  Book Session
+                </button>
+                <button
+                  onClick={() => setSelectedAlumniId(alumni.id)}
+                  className="btn-ghost text-sm"
+                >
+                  <Eye size={16} className="mr-2" />
+                  View Profile
+                </button>
+              </div>
             </motion.div>
           );
         })}
@@ -280,6 +295,21 @@ const StudentDashboard: React.FC = () => {
           {renderContent()}
         </motion.div>
       </div>
+
+      {/* Modals */}
+      {selectedAlumniId && (
+        <ProfileModal
+          alumniId={selectedAlumniId}
+          onClose={() => setSelectedAlumniId(null)}
+        />
+      )}
+      
+      {selectedMentorId && (
+        <MentorshipBooking
+          mentorId={selectedMentorId}
+          onClose={() => setSelectedMentorId(null)}
+        />
+      )}
     </div>
   );
 };
