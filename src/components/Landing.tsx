@@ -4,10 +4,14 @@ import { GraduationCap, Users } from 'phosphor-react';
 import { useAppStore } from '../store/appStore';
 
 const Landing: React.FC = () => {
-  const { setUserRole } = useAppStore();
+  const { setUserRole, loginAsDemo } = useAppStore();
 
   const handleRoleSelect = (role: 'student' | 'alumni') => {
     setUserRole(role);
+  };
+
+  const handleDemoLogin = (role: 'student' | 'alumni') => {
+    loginAsDemo(role);
   };
 
   const containerVariants = {
@@ -145,11 +149,27 @@ const Landing: React.FC = () => {
         {/* Demo Notice */}
         <motion.div
           variants={cardVariants}
-          className="mt-12"
+          className="mt-12 space-y-4"
         >
           <p className="text-sm text-muted-text">
             🎯 <strong>Demo Mode:</strong> Pick your role — all data is dummy for demonstration purposes
           </p>
+          
+          {/* Quick Demo Login Buttons */}
+          <div className="flex justify-center gap-3">
+            <button
+              onClick={() => handleDemoLogin('student')}
+              className="text-xs px-3 py-1 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+            >
+              Quick Login as Student
+            </button>
+            <button
+              onClick={() => handleDemoLogin('alumni')}
+              className="text-xs px-3 py-1 rounded-lg bg-accent/10 text-accent hover:bg-accent/20 transition-colors"
+            >
+              Quick Login as Alumni
+            </button>
+          </div>
         </motion.div>
       </motion.div>
     </div>

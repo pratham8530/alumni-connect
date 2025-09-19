@@ -13,6 +13,7 @@ const OnboardingStepper: React.FC = () => {
     setOnboardingStep, 
     onboardingData, 
     completeOnboarding,
+    cancelOnboarding,
     addNotification
   } = useAppStore();
 
@@ -84,7 +85,7 @@ const OnboardingStepper: React.FC = () => {
                 Step {onboardingStep} of {totalSteps}
               </div>
               <button
-                onClick={() => window.location.reload()}
+                onClick={cancelOnboarding}
                 className="p-1 rounded-full hover:bg-surface-secondary text-muted-text hover:text-foreground"
                 aria-label="Close onboarding"
               >

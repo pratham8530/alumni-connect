@@ -30,6 +30,12 @@ const StudentDashboard: React.FC = () => {
   const forums = dummyData.forums;
   const mentorshipSlots = dummyData.mentorshipSlots;
 
+  // Debug logging
+  console.log('Current student:', student);
+  console.log('Student ID:', student?.id);
+  console.log('All matches:', dummyData.matches);
+  console.log('Filtered matches:', matches);
+
   // Type guard to ensure we have student data
   if (!student || !('college' in student)) {
     return <div className="text-center py-12">Loading student profile...</div>;

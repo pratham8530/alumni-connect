@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CaretDown, User, Info, Gear, ChatCircle, Phone } from 'phosphor-react';
+import { CaretDown, User, Info, Gear, ChatCircle, Phone, SignOut } from 'phosphor-react';
 import { useAppStore } from '../store/appStore';
 
 interface TopBarProps {
@@ -9,7 +9,14 @@ interface TopBarProps {
 
 const TopBar: React.FC<TopBarProps> = ({ onOpenModal }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const { userRole, currentUser } = useAppStore();
+  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+  const { userRole, currentUser, logout } = useAppStore();
+
+  const handleLogout = () => {
+    logout();
+    setIsProfileDropdownOpen(false);
+    // No need to redirect - the app state change will automatically show the Landing component
+  };
 
   return (
     <motion.header 
@@ -113,18 +120,54 @@ const TopBar: React.FC<TopBarProps> = ({ onOpenModal }) => {
 
           {/* User Avatar */}
           {currentUser && (
-            <div className="flex items-center space-x-3">
-              <div className="hidden sm:block text-right">
-                <p className="text-sm font-medium text-foreground">{currentUser.name}</p>
-                <p className="text-xs text-muted-text capitalize">{userRole}</p>
-              </div>
-              <div className="h-8 w-8 rounded-full bg-gradient-to-br from-primary to-accent p-0.5">
-                <img
-                  src={currentUser.avatar}
-                  alt={currentUser.name}
-                  className="h-full w-full rounded-full bg-surface object-cover"
-                />
-              </div>
+            <div className="relative">
+              <button
+                onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)}
+                className="flex items-center space-x-3 rounded-lg px-2 py-1 transition-colors hover:bg-surface-secondary"
+              >
+                <div className="hidden sm:block text-right">
+                  <p className="text-sm font-medium text-foreground">{currentUser.name}</p>
+                  <p className="text-xs text-muted-text capitalize">{userRole}</p>
+                </div>
+                <div className="h-8 w-8 rounded-full bg-gradient-to-br from-primary to-accent p-0.5">
+                  <img
+                    src={currentUser.avatar}
+                    alt={currentUser.name}
+                    className="h-full w-full rounded-full bg-surface object-cover"
+                  />
+                </div>
+              </button>
+
+              <AnimatePresence>
+                {isProfileDropdownOpen && (
+                  <>
+                    {/* Backdrop */}
+                    <div 
+                      className="fixed inset-0 z-10"
+                      onClick={() => setIsProfileDropdownOpen(false)}
+                    />
+                    
+                    {/* Profile Dropdown Menu */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute right-0 top-full z-20 mt-2 w-48 rounded-2xl border border-border-secondary bg-surface shadow-lg"
+                    >
+                      <div className="p-2">
+                        <button
+                          onClick={handleLogout}
+                          className="flex w-full items-center space-x-3 rounded-xl px-3 py-2 text-sm text-muted-text transition-colors hover:bg-red-50 hover:text-red-600"
+                        >
+                          <SignOut size={16} />
+                          <span>Logout</span>
+                        </button>
+                      </div>
+                    </motion.div>
+                  </>
+                )}
+              </AnimatePresence>
             </div>
           )}
 

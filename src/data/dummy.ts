@@ -152,6 +152,381 @@ export const dummyData = {
       experience: 2,
       mentoring: true,
       linkedinUrl: "https://linkedin.com/in/rituagarwal"
+    },
+    {
+      id: "a9",
+      name: "Ananya Krishnan",
+      company: "Netflix",
+      role: "Full Stack Engineer",
+      gradYear: 2018,
+      tags: ["Full Stack", "JavaScript", "Node.js", "React", "Microservices"],
+      verified: true,
+      bio: "Building streaming platform features that reach 200M+ users globally.",
+      avatar: "/images/avatars/default.png",
+      points: 165,
+      experience: 5,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/ananyakrishnan"
+    },
+    {
+      id: "a10",
+      name: "Karthik Menon",
+      company: "Tesla",
+      role: "Embedded Systems Engineer",
+      gradYear: 2016,
+      tags: ["Embedded", "C++", "IoT", "Automotive", "Real-time Systems"],
+      verified: true,
+      bio: "Developing autonomous vehicle software and battery management systems.",
+      avatar: "/images/avatars/default.png",
+      points: 190,
+      experience: 7,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/karthikmenon"
+    },
+    {
+      id: "a11",
+      name: "Shreya Bansal",
+      company: "Uber",
+      role: "Data Engineer",
+      gradYear: 2019,
+      tags: ["Data Engineering", "Apache Spark", "Kafka", "ETL", "Big Data"],
+      verified: true,
+      bio: "Building real-time data pipelines for millions of rides daily.",
+      avatar: "/images/avatars/default.png",
+      points: 125,
+      experience: 4,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/shreyabansal"
+    },
+    {
+      id: "a12",
+      name: "Rajesh Iyer",
+      company: "Salesforce",
+      role: "Security Engineer",
+      gradYear: 2017,
+      tags: ["Cybersecurity", "Cloud Security", "Penetration Testing", "DevSecOps"],
+      verified: true,
+      bio: "Protecting cloud infrastructure and ensuring compliance across enterprise platforms.",
+      avatar: "/images/avatars/default.png",
+      points: 140,
+      experience: 6,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/rajeshiyer"
+    },
+    {
+      id: "a13",
+      name: "Deepika Sharma",
+      company: "Adobe",
+      role: "UX/UI Designer",
+      gradYear: 2020,
+      tags: ["UI/UX Design", "Figma", "Design Systems", "User Research"],
+      verified: true,
+      bio: "Designing creative tools used by millions of content creators worldwide.",
+      avatar: "/images/avatars/default.png",
+      points: 100,
+      experience: 3,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/deepikasharma"
+    },
+    {
+      id: "a14",
+      name: "Nikhil Jain",
+      company: "Stripe",
+      role: "Backend Engineer",
+      gradYear: 2018,
+      tags: ["Backend", "Go", "Distributed Systems", "Fintech", "API Design"],
+      verified: true,
+      bio: "Building payment infrastructure that processes billions in transactions.",
+      avatar: "/images/avatars/default.png",
+      points: 155,
+      experience: 5,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/nikhiljain"
+    },
+    {
+      id: "a15",
+      name: "Pooja Gupta",
+      company: "Airbnb",
+      role: "Product Manager",
+      gradYear: 2016,
+      tags: ["Product Management", "Strategy", "User Experience", "Travel Tech"],
+      verified: true,
+      bio: "Leading product initiatives for host and guest experiences in global markets.",
+      avatar: "/images/avatars/default.png",
+      points: 175,
+      experience: 7,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/poojagupta"
+    },
+    {
+      id: "a16",
+      name: "Siddharth Rao",
+      company: "SpaceX",
+      role: "Aerospace Engineer",
+      gradYear: 2015,
+      tags: ["Aerospace", "Systems Engineering", "Python", "Simulation"],
+      verified: true,
+      bio: "Designing rocket guidance systems for missions to Mars and beyond.",
+      avatar: "/images/avatars/default.png",
+      points: 220,
+      experience: 8,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/siddharthrao"
+    },
+    {
+      id: "a17",
+      name: "Priyanka Singh",
+      company: "Slack",
+      role: "DevOps Engineer",
+      gradYear: 2019,
+      tags: ["DevOps", "Kubernetes", "Docker", "CI/CD", "Monitoring"],
+      verified: true,
+      bio: "Building scalable infrastructure for team collaboration tools.",
+      avatar: "/images/avatars/default.png",
+      points: 115,
+      experience: 4,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/priyankasingh"
+    },
+    {
+      id: "a18",
+      name: "Arjun Malhotra",
+      company: "Twitter",
+      role: "Machine Learning Engineer",
+      gradYear: 2017,
+      tags: ["Machine Learning", "NLP", "Deep Learning", "Python", "TensorFlow"],
+      verified: true,
+      bio: "Building recommendation algorithms and content moderation systems.",
+      avatar: "/images/avatars/default.png",
+      points: 145,
+      experience: 6,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/arjunmalhotra"
+    },
+    {
+      id: "a19",
+      name: "Riya Chopra",
+      company: "Coinbase",
+      role: "Blockchain Developer",
+      gradYear: 2020,
+      tags: ["Blockchain", "Solidity", "Web3", "DeFi", "Smart Contracts"],
+      verified: true,
+      bio: "Developing decentralized finance solutions and crypto trading platforms.",
+      avatar: "/images/avatars/default.png",
+      points: 95,
+      experience: 3,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/riyachopra"
+    },
+    {
+      id: "a20",
+      name: "Varun Khanna",
+      company: "Zoom",
+      role: "Video Engineer",
+      gradYear: 2018,
+      tags: ["Video Technology", "WebRTC", "C++", "Real-time Systems"],
+      verified: true,
+      bio: "Optimizing video quality and reducing latency for global communications.",
+      avatar: "/images/avatars/default.png",
+      points: 130,
+      experience: 5,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/varunkhanna"
+    },
+    {
+      id: "a21",
+      name: "Nisha Patel",
+      company: "Spotify",
+      role: "Data Scientist",
+      gradYear: 2019,
+      tags: ["Data Science", "Music Tech", "Recommendation Systems", "A/B Testing"],
+      verified: true,
+      bio: "Using data to personalize music discovery for 400M+ users worldwide.",
+      avatar: "/images/avatars/default.png",
+      points: 120,
+      experience: 4,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/nishapatel"
+    },
+    {
+      id: "a22",
+      name: "Aman Verma",
+      company: "Razorpay",
+      role: "Full Stack Developer",
+      gradYear: 2021,
+      tags: ["Full Stack", "Node.js", "React", "Fintech", "Payment Systems"],
+      verified: false,
+      bio: "Building payment solutions for millions of businesses across India.",
+      avatar: "/images/avatars/default.png",
+      points: 70,
+      experience: 2,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/amanverma"
+    },
+    {
+      id: "a23",
+      name: "Kavita Reddy",
+      company: "Oracle",
+      role: "Database Administrator",
+      gradYear: 2016,
+      tags: ["Database", "SQL", "Oracle", "Performance Tuning", "Cloud"],
+      verified: true,
+      bio: "Managing enterprise databases and optimizing performance for large-scale applications.",
+      avatar: "/images/avatars/default.png",
+      points: 160,
+      experience: 7,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/kavitareddy"
+    },
+    {
+      id: "a24",
+      name: "Rohit Kumar",
+      company: "Swiggy",
+      role: "Mobile Developer",
+      gradYear: 2020,
+      tags: ["Mobile", "Flutter", "Android", "iOS", "Food Tech"],
+      verified: true,
+      bio: "Creating seamless food delivery experiences for millions of hungry users.",
+      avatar: "/images/avatars/default.png",
+      points: 85,
+      experience: 3,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/rohitkumar"
+    },
+    {
+      id: "a25",
+      name: "Tanvi Agarwal",
+      company: "Paytm",
+      role: "QA Engineer",
+      gradYear: 2019,
+      tags: ["Quality Assurance", "Test Automation", "Selenium", "API Testing"],
+      verified: true,
+      bio: "Ensuring quality and reliability of financial services used by millions.",
+      avatar: "/images/avatars/default.png",
+      points: 105,
+      experience: 4,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/tanviagarwal"
+    },
+    {
+      id: "a26",
+      name: "Akash Mehta",
+      company: "GitHub",
+      role: "Developer Relations",
+      gradYear: 2017,
+      tags: ["Developer Relations", "Open Source", "Community", "Technical Writing"],
+      verified: true,
+      bio: "Building developer communities and evangelizing best practices in software development.",
+      avatar: "/images/avatars/default.png",
+      points: 135,
+      experience: 6,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/akashmehta"
+    },
+    {
+      id: "a27",
+      name: "Shruti Nair",
+      company: "Atlassian",
+      role: "Site Reliability Engineer",
+      gradYear: 2018,
+      tags: ["SRE", "Infrastructure", "Monitoring", "Incident Response", "Kubernetes"],
+      verified: true,
+      bio: "Ensuring 99.9% uptime for collaboration tools used by thousands of companies.",
+      avatar: "/images/avatars/default.png",
+      points: 150,
+      experience: 5,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/shrutinair"
+    },
+    {
+      id: "a28",
+      name: "Gaurav Singh",
+      company: "Freshworks",
+      role: "Frontend Engineer",
+      gradYear: 2020,
+      tags: ["Frontend", "Vue.js", "TypeScript", "SaaS", "Customer Experience"],
+      verified: true,
+      bio: "Building intuitive customer experience software for businesses worldwide.",
+      avatar: "/images/avatars/default.png",
+      points: 90,
+      experience: 3,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/gauravsingh"
+    },
+    {
+      id: "a29",
+      name: "Neha Joshi",
+      company: "Byju's",
+      role: "EdTech Product Manager",
+      gradYear: 2016,
+      tags: ["Product Management", "EdTech", "User Experience", "Education", "Growth"],
+      verified: true,
+      bio: "Revolutionizing education through technology for millions of students globally.",
+      avatar: "/images/avatars/default.png",
+      points: 170,
+      experience: 7,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/nehajoshi"
+    },
+    {
+      id: "a30",
+      name: "Vishal Gupta",
+      company: "Wipro",
+      role: "Cloud Solutions Architect",
+      gradYear: 2015,
+      tags: ["Cloud Architecture", "AWS", "Enterprise Solutions", "Digital Transformation"],
+      verified: true,
+      bio: "Helping enterprises migrate to cloud and modernize their technology stack.",
+      avatar: "/images/avatars/default.png",
+      points: 185,
+      experience: 8,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/vishalgupta"
+    },
+    {
+      id: "a31",
+      name: "Preeti Sharma",
+      company: "Flipkart",
+      role: "Data Analyst",
+      gradYear: 2021,
+      tags: ["Data Analysis", "SQL", "Python", "Business Intelligence", "E-commerce"],
+      verified: false,
+      bio: "Driving business decisions through data insights in India's largest e-commerce platform.",
+      avatar: "/images/avatars/default.png",
+      points: 65,
+      experience: 2,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/preetisharma"
+    },
+    {
+      id: "a32",
+      name: "Harish Reddy",
+      company: "PhonePe",
+      role: "Backend Engineer",
+      gradYear: 2019,
+      tags: ["Backend", "Java", "Spring Boot", "Microservices", "Fintech"],
+      verified: true,
+      bio: "Building robust payment systems handling millions of transactions daily.",
+      avatar: "/images/avatars/default.png",
+      points: 110,
+      experience: 4,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/harishreddy"
+    },
+    {
+      id: "a33",
+      name: "Anjali Singh",
+      company: "Dream11",
+      role: "Game Developer",
+      gradYear: 2020,
+      tags: ["Game Development", "Unity", "C#", "Mobile Gaming", "Sports Tech"],
+      verified: true,
+      bio: "Creating engaging fantasy sports experiences for millions of cricket fans.",
+      avatar: "/images/avatars/default.png",
+      points: 80,
+      experience: 3,
+      mentoring: true,
+      linkedinUrl: "https://linkedin.com/in/anjalisingh"
     }
   ],
   
@@ -425,6 +800,36 @@ export const dummyData = {
       matchReason: ["Backend", "System Design"]
     },
     {
+      studentId: "s1",
+      alumniId: "a14",
+      score: 90,
+      matchReason: ["Backend", "Fintech", "API Design"]
+    },
+    {
+      studentId: "s1",
+      alumniId: "a32",
+      score: 85,
+      matchReason: ["Backend", "Fintech"]
+    },
+    {
+      studentId: "s1",
+      alumniId: "a9",
+      score: 82,
+      matchReason: ["Backend", "Full Stack"]
+    },
+    {
+      studentId: "s1",
+      alumniId: "a12",
+      score: 75,
+      matchReason: ["Backend", "DevSecOps"]
+    },
+    {
+      studentId: "s1",
+      alumniId: "a5",
+      score: 79,
+      matchReason: ["Backend", "System Design"]
+    },
+    {
       studentId: "s2",
       alumniId: "a3",
       score: 85,
@@ -443,6 +848,36 @@ export const dummyData = {
       matchReason: ["Frontend", "Mobile"]
     },
     {
+      studentId: "s2",
+      alumniId: "a13",
+      score: 88,
+      matchReason: ["UI/UX Design", "Frontend"]
+    },
+    {
+      studentId: "s2",
+      alumniId: "a28",
+      score: 91,
+      matchReason: ["Frontend", "TypeScript"]
+    },
+    {
+      studentId: "s2",
+      alumniId: "a24",
+      score: 83,
+      matchReason: ["Mobile", "Frontend"]
+    },
+    {
+      studentId: "s2",
+      alumniId: "a22",
+      score: 87,
+      matchReason: ["Frontend", "React"]
+    },
+    {
+      studentId: "s2",
+      alumniId: "a33",
+      score: 76,
+      matchReason: ["Mobile", "Frontend"]
+    },
+    {
       studentId: "s3",
       alumniId: "a2",
       score: 89,
@@ -453,6 +888,110 @@ export const dummyData = {
       alumniId: "a6",
       score: 91,
       matchReason: ["Data Science", "Machine Learning", "Python"]
+    },
+    {
+      studentId: "s3",
+      alumniId: "a11",
+      score: 86,
+      matchReason: ["Data Science", "Big Data", "Python"]
+    },
+    {
+      studentId: "s3",
+      alumniId: "a18",
+      score: 93,
+      matchReason: ["Machine Learning", "Python", "Deep Learning"]
+    },
+    {
+      studentId: "s3",
+      alumniId: "a21",
+      score: 88,
+      matchReason: ["Data Science", "Machine Learning"]
+    },
+    {
+      studentId: "s3",
+      alumniId: "a31",
+      score: 84,
+      matchReason: ["Data Analysis", "Python"]
+    },
+    // Additional matches for broader exposure
+    {
+      studentId: "s1",
+      alumniId: "a10",
+      score: 72,
+      matchReason: ["Systems Programming", "C++"]
+    },
+    {
+      studentId: "s1",
+      alumniId: "a17",
+      score: 77,
+      matchReason: ["Backend", "DevOps"]
+    },
+    {
+      studentId: "s1",
+      alumniId: "a27",
+      score: 80,
+      matchReason: ["Backend", "Infrastructure"]
+    },
+    {
+      studentId: "s2",
+      alumniId: "a15",
+      score: 82,
+      matchReason: ["Product Management", "User Experience"]
+    },
+    {
+      studentId: "s2",
+      alumniId: "a29",
+      score: 85,
+      matchReason: ["Product Management", "User Experience"]
+    },
+    {
+      studentId: "s2",
+      alumniId: "a20",
+      score: 74,
+      matchReason: ["Frontend", "Real-time Systems"]
+    },
+    {
+      studentId: "s3",
+      alumniId: "a16",
+      score: 71,
+      matchReason: ["Python", "Simulation"]
+    },
+    {
+      studentId: "s3",
+      alumniId: "a30",
+      score: 73,
+      matchReason: ["Data Analysis", "Cloud"]
+    },
+    // Cross-domain matches for discovery
+    {
+      studentId: "s1",
+      alumniId: "a19",
+      score: 69,
+      matchReason: ["Backend", "Blockchain"]
+    },
+    {
+      studentId: "s1",
+      alumniId: "a26",
+      score: 71,
+      matchReason: ["Technical Skills", "Open Source"]
+    },
+    {
+      studentId: "s2",
+      alumniId: "a19",
+      score: 75,
+      matchReason: ["Web3", "Frontend"]
+    },
+    {
+      studentId: "s2",
+      alumniId: "a25",
+      score: 73,
+      matchReason: ["Quality Assurance", "Testing"]
+    },
+    {
+      studentId: "s3",
+      alumniId: "a23",
+      score: 76,
+      matchReason: ["Data Science", "SQL"]
     }
   ],
   

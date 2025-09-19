@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import { dummyData, Student, Alumni } from '../data/dummy';
 
 export type UserRole = 'student' | 'alumni' | null;
@@ -52,6 +53,9 @@ interface AppState {
   setOnboardingStep: (step: number) => void;
   updateOnboardingData: (data: Partial<OnboardingData>) => void;
   completeOnboarding: () => void;
+  logout: () => void;
+  loginAsDemo: (role: 'student' | 'alumni') => void;
+  cancelOnboarding: () => void;
   
   // UI Actions
   openDrawer: (content: 'forum' | 'chat', forumId?: string) => void;
@@ -67,29 +71,31 @@ interface AppState {
   removeNotification: (id: string) => void;
 }
 
-export const useAppStore = create<AppState>((set, get) => ({
-  // Initial state
-  userRole: null,
-  currentUser: null,
-  isOnboardingComplete: false,
-  onboardingStep: 1,
-  onboardingData: {},
-  
-  isDrawerOpen: false,
-  drawerContent: null,
-  selectedForumId: null,
-  isChatbotOpen: false,
-  
-  chatMessages: [
-    {
-      id: '1',
-      text: 'Hi! I\'m here to help you with admissions, placement tips, and mentorship questions. What would you like to know?',
-      isBot: true,
-      timestamp: new Date()
-    }
-  ],
-  
-  notifications: [],
+export const useAppStore = create<AppState>()(
+  persist(
+    (set, get) => ({
+      // Initial state - start with no user logged in
+      userRole: null,
+      currentUser: null,
+      isOnboardingComplete: false,
+      onboardingStep: 1,
+      onboardingData: {},
+      
+      isDrawerOpen: false,
+      drawerContent: null,
+      selectedForumId: null,
+      isChatbotOpen: false,
+      
+      chatMessages: [
+        {
+          id: '1',
+          text: 'Hi! I\'m here to help you with admissions, placement tips, and mentorship questions. What would you like to know?',
+          isBot: true,
+          timestamp: new Date()
+        }
+      ],
+      
+      notifications: [],
 
   // Actions
   setUserRole: (role) => set({ userRole: role }),
@@ -99,14 +105,36 @@ export const useAppStore = create<AppState>((set, get) => ({
   updateOnboardingData: (data) => set((state) => ({
     onboardingData: { ...state.onboardingData, ...data }
   })),
-  
+
+  // Quick demo login function for testing
+  loginAsDemo: (role: 'student' | 'alumni') => {
+    const demoUser = role === 'student' 
+      ? dummyData.students[0]
+      : dummyData.alumni[0];
+    
+    set({
+      userRole: role,
+      currentUser: demoUser,
+      isOnboardingComplete: true
+    });
+  },
+
+  // Cancel onboarding and reset to initial state
+  cancelOnboarding: () => set({
+    userRole: null,
+    currentUser: null,
+    isOnboardingComplete: false,
+    onboardingStep: 1,
+    onboardingData: {}
+  }),
+
   completeOnboarding: () => {
     const { onboardingData, userRole } = get();
     
     // Create mock user based on onboarding data
     const mockUser = userRole === 'student' 
       ? {
-          id: 'new-student',
+          id: 's1', // Use existing student ID so matches work
           name: onboardingData.name || 'New Student',
           college: onboardingData.college || 'University',
           year: onboardingData.year || 'Final Year',
@@ -138,6 +166,26 @@ export const useAppStore = create<AppState>((set, get) => ({
       onboardingData: {}
     });
   },
+
+  logout: () => set({
+    userRole: null,
+    currentUser: null,
+    isOnboardingComplete: false,
+    onboardingStep: 1,
+    onboardingData: {},
+    isDrawerOpen: false,
+    drawerContent: null,
+    selectedForumId: null,
+    isChatbotOpen: false,
+    chatMessages: [
+      {
+        id: '1',
+        text: 'Hi! I\'m here to help you with admissions, placement tips, and mentorship questions. What would you like to know?',
+        isBot: true,
+        timestamp: new Date()
+      }
+    ],
+  }),
   
   // UI Actions
   openDrawer: (content, forumId) => set({
@@ -215,7 +263,28 @@ export const useAppStore = create<AppState>((set, get) => ({
   removeNotification: (id) => set((state) => ({
     notifications: state.notifications.filter(n => n.id !== id)
   })),
-}));
+    }),
+    {
+      name: 'app-storage',
+      partialize: (state) => {
+        // Only persist if onboarding is complete
+        if (state.isOnboardingComplete && state.currentUser) {
+          return {
+            userRole: state.userRole,
+            currentUser: state.currentUser,
+            isOnboardingComplete: state.isOnboardingComplete,
+          };
+        }
+        // Otherwise, return empty state (logged out)
+        return {
+          userRole: null,
+          currentUser: null,
+          isOnboardingComplete: false,
+        };
+      },
+    }
+  )
+);
 
 // Simple chatbot response logic
 function getBotResponse(userMessage: string): string[] {
